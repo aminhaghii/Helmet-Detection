@@ -1,0 +1,72 @@
+# Model Configuration for YOLOv8 Construction Safety Detection
+# Optimized for RTX 4050 GPU performance
+
+model:
+  name: "yolov8l"
+  pretrained: true
+  weights: "yolov8l.pt"
+
+# Training hyperparameters
+training:
+  epochs: 300
+  batch_size: 16  # Optimized for RTX 4050
+  imgsz: 640
+  device: 0  # GPU device
+  workers: 8
+  
+  # Optimization settings
+  optimizer: "AdamW"
+  lr0: 0.01
+  lrf: 0.01
+  momentum: 0.937
+  weight_decay: 0.0005
+  warmup_epochs: 3
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  
+  # Mixed precision training for speed
+  amp: true
+  
+  # Early stopping
+  patience: 50
+  
+  # Model saving
+  save_period: 10
+
+# Validation settings
+validation:
+  val_period: 1
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  max_det: 300
+
+# Loss function weights
+loss:
+  box: 7.5
+  cls: 0.5
+  dfl: 1.5
+
+# Data loading
+data_loading:
+  cache: true  # Cache images for faster training
+  rect: false  # Rectangular training
+  cos_lr: false  # Cosine learning rate scheduler
+  close_mosaic: 10  # Disable mosaic in last N epochs
+
+# Performance optimization
+performance:
+  # TensorRT optimization
+  tensorrt:
+    enabled: true
+    precision: "fp16"  # Half precision for speed
+    workspace_size: 4  # GB
+    
+  # CUDA optimization
+  cuda:
+    benchmark: true
+    deterministic: false
+    
+  # Memory optimization
+  memory:
+    pin_memory: true
+    persistent_workers: true

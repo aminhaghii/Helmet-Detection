@@ -1,0 +1,66 @@
+graph TD
+    %% Phase 1: Setup
+    A[🔧 Environment Setup] --> A1[Install Anaconda & VS Code]
+    A1 --> A2[Create Conda Environment]
+    A2 --> A3[Install Dependencies<br/>PyTorch, YOLOv8, OpenCV, TensorRT]
+    A3 --> A4[Setup Project Structure]
+    
+    %% Phase 2: Dataset
+    A4 --> B[📊 Dataset Collection]
+    B --> B1[Download Roboflow Dataset<br/>571 helmet images]
+    B1 --> B2[Download Kaggle Dataset<br/>1,010 construction images]
+    B2 --> B3[Capture Custom Dataset<br/>Laptop camera footage]
+    B3 --> B4[Unify Dataset Format<br/>Convert to YOLOv8 YAML]
+    B4 --> B5[Configure Data Augmentation<br/>Mosaic, Mixup, HSV, Flips]
+    
+    %% Phase 3: Training
+    B5 --> C[🤖 Model Training]
+    C --> C1[Select YOLOv8l Architecture]
+    C1 --> C2[Configure Training Pipeline<br/>Mixed Precision, TensorBoard]
+    C2 --> C3[Train Model<br/>Monitor mAP, Loss, Accuracy]
+    C3 --> C4[Model Validation<br/>Test on validation set]
+    C4 --> C5[Export to TensorRT<br/>INT8 Quantization]
+    
+    %% Phase 4: Desktop App
+    C5 --> D[💻 Desktop Application]
+    D --> D1[Create OpenCV Video Capture]
+    D1 --> D2[Implement Real-time Inference]
+    D2 --> D3[Build GUI Interface<br/>Tkinter/PyQt5]
+    D3 --> D4[Add Detection Visualization]
+    D4 --> D5[Implement Alert System]
+    
+    %% Phase 5: Testing
+    D5 --> E[🧪 System Testing]
+    E --> E1[Laptop Camera Testing]
+    E1 --> E2[Performance Benchmarking<br/>Speed & Accuracy]
+    E2 --> E3[Error Handling Testing]
+    E3 --> E4[User Interface Testing]
+    
+    %% Phase 6: Deployment
+    E4 --> F[🚀 Deployment Ready]
+    F --> F1[Create Docker Container<br/>NVIDIA PyTorch Base]
+    F1 --> F2[Configure Container Toolkit]
+    F2 --> F3[Generate Documentation]
+    F3 --> F4[Final System Package]
+    
+    %% Real-time Flow
+    F4 --> G[⚡ Real-time Operation]
+    G --> G1[Camera Input<br/>Laptop Webcam]
+    G1 --> G2[Frame Preprocessing<br/>Resize, Normalize]
+    G2 --> G3[TensorRT Inference<br/>Helmet & Building Detection]
+    G3 --> G4[Post-processing<br/>NMS, Confidence Filtering]
+    G4 --> G5[Visualization<br/>Bounding Boxes, Labels]
+    G5 --> G6[Alert Generation<br/>Safety Violations]
+    G6 --> G7[Display Results<br/>Real-time Feed]
+    
+    %% Feedback Loop
+    G7 --> G1
+    
+    %% Styling
+    classDef phaseBox fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef processBox fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef realtimeBox fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    
+    class A,B,C,D,E,F phaseBox
+    class A1,A2,A3,A4,B1,B2,B3,B4,B5,C1,C2,C3,C4,C5,D1,D2,D3,D4,D5,E1,E2,E3,E4,F1,F2,F3,F4 processBox
+    class G,G1,G2,G3,G4,G5,G6,G7 realtimeBox

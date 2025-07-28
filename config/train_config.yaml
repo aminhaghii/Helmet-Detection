@@ -1,0 +1,116 @@
+# Training Configuration for Helmet Detection Model
+# Optimized for RTX 4050 GPU and construction safety detection
+
+# Model settings
+model:
+  name: "yolov8s"  # Small model for faster training and inference
+  pretrained: true
+  weights: "yolov8s.pt"
+  input_size: 640
+  num_classes: 2  # helm, no-helm
+
+# Training parameters
+training:
+  epochs: 150  # Reduced epochs for faster training with small model
+  batch_size: 32  # Increased batch size for small model
+  device: 0  # GPU device (0 for first GPU, 'cpu' for CPU)
+  workers: 8  # Number of data loading workers
+  
+  # Optimization settings
+  optimizer: "AdamW"
+  learning_rate: 0.01
+  lr_final: 0.01  # Final learning rate (lr0 * lrf)
+  momentum: 0.937
+  weight_decay: 0.0005
+  warmup_epochs: 3
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  
+  # Mixed precision training for speed and memory efficiency
+  amp: true
+  
+  # Early stopping and checkpointing
+  patience: 50  # Early stopping patience
+  save_period: 10  # Save checkpoint every N epochs
+
+# Validation settings
+validation:
+  val_period: 1  # Validate every N epochs
+  conf_threshold: 0.25  # Confidence threshold for validation
+  iou_threshold: 0.45  # IoU threshold for NMS
+  max_det: 300  # Maximum detections per image
+  save_json: true  # Save validation results as JSON
+
+# Data augmentation
+data_augmentation:
+  # Spatial augmentations
+  degrees: 0.0  # Image rotation (+/- deg)
+  translate: 0.1  # Image translation (+/- fraction)
+  scale: 0.5  # Image scale (+/- gain)
+  shear: 0.0  # Image shear (+/- deg)
+  perspective: 0.0  # Image perspective (+/- fraction)
+  
+  # Pixel augmentations
+  hsv_h: 0.015  # Image HSV-Hue augmentation (fraction)
+  hsv_s: 0.7  # Image HSV-Saturation augmentation (fraction)
+  hsv_v: 0.4  # Image HSV-Value augmentation (fraction)
+  
+  # Advanced augmentations
+  flipud: 0.0  # Image flip up-down (probability)
+  fliplr: 0.5  # Image flip left-right (probability)
+  mosaic: 1.0  # Image mosaic (probability)
+  mixup: 0.0  # Image mixup (probability)
+  copy_paste: 0.0  # Segment copy-paste (probability)
+
+# Loss function weights
+loss:
+  box: 7.5  # Box loss gain
+  cls: 0.5  # Class loss gain
+  dfl: 1.5  # Distribution focal loss gain
+
+# Data loading optimization
+data_loading:
+  cache: true  # Cache images for faster training
+  rect: false  # Rectangular training
+  cos_lr: false  # Cosine learning rate scheduler
+  close_mosaic: 10  # Disable mosaic in last N epochs
+  
+# Performance optimization
+performance:
+  # Memory optimization
+  pin_memory: true
+  persistent_workers: true
+  
+  # CUDA optimization
+  cuda_benchmark: true
+  deterministic: false
+
+# Logging and monitoring
+logging:
+  # Weights & Biases integration
+  wandb:
+    enabled: true
+    project: "helmet-detection"
+    entity: null  # Your W&B entity/username
+    tags: ["yolov8", "helmet-detection", "construction-safety"]
+  
+  # Local logging
+  log_level: "INFO"
+  save_plots: true
+  save_confusion_matrix: true
+
+# Export settings (for post-training)
+export:
+  formats: ["onnx", "engine"]  # Export formats
+  optimize: true
+  half: true  # FP16 precision
+  dynamic: false  # Dynamic input shapes
+  simplify: true  # Simplify ONNX model
+  workspace: 4  # TensorRT workspace size (GB)
+
+# Paths (will be set automatically by trainer)
+paths:
+  data_config: null  # Will be set to unified_dataset/data.yaml
+  models_dir: "models"
+  logs_dir: "logs"
+  results_dir: "results"

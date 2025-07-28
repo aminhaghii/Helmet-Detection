@@ -1,0 +1,51 @@
+
+# Paths (relative to project root)
+train: Data/processed/images/train
+val: Data/processed/images/val  
+test: Data/processed/images/test
+
+nc: 2
+
+names: ['helm', 'no-helm']
+
+dataset_info:
+  total_datasets: 6
+  source_datasets:
+    - name: "Roboflow Safety Helmet v18"
+      path: "Data/2"
+      images: 571
+    - name: "Roboflow Safety Helmet v17" 
+      path: "Data/3"
+      images: 571
+    - name: "Roboflow Safety Helmet v3"
+      path: "Data/5"
+      images: 571
+    - name: "Worksite Safety Dataset 1"
+      path: "Data/1"
+      images: 1000
+    - name: "Worksite Safety Dataset 2"
+      path: "Data/6"
+      images: 1000
+    - name: "Custom Dataset"
+      path: "Data/4"
+      images: 500
+
+split_ratios:
+  train: 0.7
+  val: 0.2
+  test: 0.1
+
+augmentation:
+  mosaic: 1.0
+  mixup: 0.1
+  copy_paste: 0.1
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4

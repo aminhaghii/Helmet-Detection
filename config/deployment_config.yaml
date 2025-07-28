@@ -1,0 +1,68 @@
+
+
+app:
+  name: "HSE Vision - Construction Safety Detection"
+  version: "1.0.0"
+  window_size: [1200, 800]
+  fps_target: 30
+
+camera:
+  device_id: 0  
+  resolution: [640, 480]  
+  fps: 30
+  buffer_size: 1
+
+detection:
+  confidence_threshold: 0.5
+  iou_threshold: 0.45
+  max_detections: 100
+  
+  alert_no_helmet_threshold: 0.7
+  alert_duration: 3.0  
+
+performance:
+  # GPU acceleration
+  use_gpu: true
+  gpu_device: 0
+  
+  # TensorRT optimization
+  use_tensorrt: true
+  tensorrt_precision: "fp16"
+  
+  use_threading: true
+  max_threads: 4
+  
+  max_memory_usage: 4  # GB
+  clear_cache_interval: 100  # frames
+
+ui:
+  theme: "dark"
+  colors:
+    helmet_detected: "#00FF00"  # Green
+    no_helmet_detected: "#FF0000"  # Red
+    background: "#2B2B2B"
+    text: "#FFFFFF"
+  
+  show_confidence: true
+  show_fps: true
+  show_detection_count: true
+  
+  visual_alerts: true
+  audio_alerts: false  # Disabled by default
+  alert_flash_duration: 0.5
+
+logging:
+  level: "INFO"
+  file: "logs/desktop_app.log"
+  max_size: 10  # MB
+  backup_count: 5
+  
+  log_fps: true
+  log_detections: true
+  log_alerts: true
+
+export:
+  save_detections: false
+  output_directory: "outputs/predictions"
+  image_format: "jpg"
+  video_format: "mp4"

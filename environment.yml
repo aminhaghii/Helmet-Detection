@@ -1,0 +1,27 @@
+name: HSE Vision
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - numpy>=1.24.0
+  - opencv
+  - matplotlib
+  - seaborn
+  - pandas
+  - scikit-learn
+  - tqdm
+  - pyyaml
+  - requests
+  - pytest
+  - pip:
+    - ultralytics>=8.0.0
+    - torch>=2.0.0
+    - torchvision>=0.15.0
+    - customtkinter>=5.2.0
+    - tkinter-tooltip>=2.0.0
+    - black>=23.0.0
+    - flake8>=6.0.0
+    - isort>=5.12.0
