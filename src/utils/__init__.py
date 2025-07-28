@@ -8,4 +8,4 @@ Project: Construction Safety Detection System
 
 from .logger import setup_logger, get_logger, PerformanceLogger
 
-__all__ = ['setup_logger', 'get_logger', 'PerformanceLogger']
+__all__ = ["setup_logger", "get_logger", "PerformanceLogger"]

@@ -10,4 +10,4 @@ from .model import HelmetDetector
 from .trainer import ModelTrainer
 from .inference import InferenceEngine
 
-__all__ = ['HelmetDetector', 'ModelTrainer', 'InferenceEngine']
+__all__ = ["HelmetDetector", "ModelTrainer", "InferenceEngine"]

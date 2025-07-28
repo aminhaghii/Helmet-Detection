@@ -10,4 +10,4 @@ from .main_window import SafetyDetectionApp
 from .camera_handler import CameraHandler
 from .detection_display import DetectionDisplay
 
-__all__ = ['SafetyDetectionApp', 'CameraHandler', 'DetectionDisplay']
+__all__ = ["SafetyDetectionApp", "CameraHandler", "DetectionDisplay"]

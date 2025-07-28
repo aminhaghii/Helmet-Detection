@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 import os
 
-output_dir = 'c:/Users/aminh/OneDrive/Desktop/Projects/HSE_Vision/outputs/visualizations'
+output_dir = (
+    "c:/Users/aminh/OneDrive/Desktop/Projects/HSE_Vision/outputs/visualizations"
+)
 os.makedirs(output_dir, exist_ok=True)
 
 plt.figure()
 plt.plot([1, 2, 3], [1, 4, 9])
 plt.title("Test Plot")
-save_path = os.path.join(output_dir, 'test_plot.png')
+save_path = os.path.join(output_dir, "test_plot.png")
 print(f"Saving plot to: {save_path}")
 plt.savefig(save_path)
 plt.close()
