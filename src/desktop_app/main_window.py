@@ -21,13 +21,28 @@ import yaml
 from PIL import Image, ImageTk
 from tkinter import filedialog, messagebox, ttk
 
-from ..core.inference import InferenceEngine
+try:
+    from core.inference import InferenceEngine
+except ImportError:
+    from src.core.inference import InferenceEngine
 
 # Import project modules
-from ..core.model import HelmetDetector
-from ..utils.logger import PerformanceLogger, setup_logger
-from .camera_handler import CameraHandler
-from .detection_display import DetectionDisplay
+try:
+    from core.model import HelmetDetector
+except ImportError:
+    from src.core.model import HelmetDetector
+
+try:
+    from utils.logger import PerformanceLogger, setup_logger
+except ImportError:
+    from src.utils.logger import PerformanceLogger, setup_logger
+
+try:
+    from .camera_handler import CameraHandler
+    from .detection_display import DetectionDisplay
+except ImportError:
+    from desktop_app.camera_handler import CameraHandler
+    from desktop_app.detection_display import DetectionDisplay
 
 logger = logging.getLogger(__name__)
 

@@ -17,8 +17,20 @@ import cv2
 import numpy as np
 import torch
 
-from ..utils.logger import PerformanceLogger
-from .model import HelmetDetector
+try:
+    from utils.logger import PerformanceLogger
+except ImportError:
+    # Fallback for test environment
+    from src.utils.logger import PerformanceLogger
+
+try:
+    from core.model import HelmetDetector
+except ImportError:
+    # Fallback for test environment
+    try:
+        from .model import HelmetDetector
+    except ImportError:
+        from src.core.model import HelmetDetector
 
 logger = logging.getLogger(__name__)
 
