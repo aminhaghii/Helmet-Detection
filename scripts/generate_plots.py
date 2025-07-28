@@ -1,12 +1,13 @@
 import matplotlib
 
 matplotlib.use("Agg")
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import os
-import io
 import base64
+import io
+import os
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
 # Load the training results
 results_path = "c:/Users/aminh/OneDrive/Desktop/Projects/HSE_Vision/models/trained/helmet_detection_20250727_152811/results.csv"

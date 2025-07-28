@@ -4,14 +4,15 @@ Advanced Real-Time Safety Monitoring with Enhanced UI
 Version 2.0 - Professional Edition
 """
 
-import cv2
-from ultralytics import YOLO
-import numpy as np
-import time
-import os
 import math
+import os
+import time
 from collections import defaultdict, deque
 from datetime import datetime
+
+import cv2
+import numpy as np
+from ultralytics import YOLO
 
 
 class ProfessionalHelmetDetector:

@@ -6,16 +6,17 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
+import argparse
+import logging
 import os
 import sys
-import yaml
-import logging
-import argparse
-from pathlib import Path
-import torch
-from ultralytics import YOLO
-import wandb
 from datetime import datetime
+from pathlib import Path
+
+import torch
+import wandb
+import yaml
+from ultralytics import YOLO
 
 # Add project root to path
 project_root = Path(__file__).parent.parent.parent

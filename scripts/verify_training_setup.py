@@ -8,9 +8,10 @@ Project: Construction Safety Detection System
 
 import os
 import sys
-import yaml
 from pathlib import Path
+
 import torch
+import yaml
 from ultralytics import YOLO
 
 

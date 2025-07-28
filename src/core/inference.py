@@ -6,18 +6,19 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
+import logging
+import threading
+import time
+from pathlib import Path
+from queue import Queue
+from typing import Dict, List, Optional, Tuple
+
 import cv2
 import numpy as np
 import torch
-import time
-from typing import List, Dict, Tuple, Optional
-import logging
-from pathlib import Path
-import threading
-from queue import Queue
 
-from .model import HelmetDetector
 from ..utils.logger import PerformanceLogger
+from .model import HelmetDetector
 
 logger = logging.getLogger(__name__)
 

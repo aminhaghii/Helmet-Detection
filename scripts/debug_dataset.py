@@ -3,8 +3,9 @@
 Debug script to test dataset path resolution
 """
 
-import yaml
 from pathlib import Path
+
+import yaml
 
 
 def debug_dataset(dataset_path):

@@ -10,8 +10,8 @@ Author: HSE Vision Team
 Version: 2.0
 """
 
-import sys
 import os
+import sys
 from pathlib import Path
 
 # Add scripts directory to path

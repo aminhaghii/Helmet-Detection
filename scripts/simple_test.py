@@ -3,9 +3,10 @@ Simple Helmet Detection Test
 Quick test script for helmet detection on camera
 """
 
+import os
+
 import cv2
 from ultralytics import YOLO
-import os
 
 
 def test_helmet_detection():

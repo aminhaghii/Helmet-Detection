@@ -1,5 +1,6 @@
-import matplotlib.pyplot as plt
 import os
+
+import matplotlib.pyplot as plt
 
 output_dir = (
     "c:/Users/aminh/OneDrive/Desktop/Projects/HSE_Vision/outputs/visualizations"

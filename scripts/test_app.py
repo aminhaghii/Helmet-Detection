@@ -6,8 +6,8 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
-import sys
 import os
+import sys
 from pathlib import Path
 
 

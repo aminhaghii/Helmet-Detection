@@ -3,12 +3,13 @@ Real-time Helmet Detection using YOLOv8s on Laptop Camera
 This script tests the trained helmet detection model on your laptop camera.
 """
 
+import os
+import time
+
 import cv2
+import numpy as np
 import torch
 from ultralytics import YOLO
-import numpy as np
-import time
-import os
 
 
 class HelmetDetector:

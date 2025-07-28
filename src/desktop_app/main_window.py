@@ -6,24 +6,26 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
-import tkinter as tk
-from tkinter import ttk, filedialog, messagebox
+import logging
+import os
+import threading
+import time
+from datetime import datetime
+from typing import Dict, List, Optional
+
 import customtkinter as ctk
 import cv2
 import numpy as np
-from PIL import Image, ImageTk
-import threading
-import time
+import tkinter as tk
 import yaml
-import os
-import logging
-from typing import Optional, Dict, List
-from datetime import datetime
+from PIL import Image, ImageTk
+from tkinter import filedialog, messagebox, ttk
+
+from ..core.inference import InferenceEngine
 
 # Import project modules
 from ..core.model import HelmetDetector
-from ..core.inference import InferenceEngine
-from ..utils.logger import setup_logger, PerformanceLogger
+from ..utils.logger import PerformanceLogger, setup_logger
 from .camera_handler import CameraHandler
 from .detection_display import DetectionDisplay
 

@@ -6,13 +6,14 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
-import cv2
-import numpy as np
+import logging
 import threading
 import time
-from typing import Optional, Callable, Tuple
-import logging
 from queue import Queue
+from typing import Callable, Optional, Tuple
+
+import cv2
+import numpy as np
 
 logger = logging.getLogger(__name__)
 

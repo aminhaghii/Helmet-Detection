@@ -6,11 +6,11 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
-import os
-import sys
-import subprocess
-import platform
 import logging
+import os
+import platform
+import subprocess
+import sys
 from pathlib import Path
 
 # Setup logging
@@ -202,10 +202,10 @@ class HSEVisionSetup:
             logger.info("Verifying installation...")
 
             # Test core imports
+            import customtkinter
+            import cv2
             import torch
             import ultralytics
-            import cv2
-            import customtkinter
 
             # Test CUDA if available
             if torch.cuda.is_available():

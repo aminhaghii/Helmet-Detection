@@ -6,14 +6,15 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
+import logging
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import numpy as np
 import torch
 import torch.nn as nn
-from ultralytics import YOLO
-import numpy as np
-from pathlib import Path
-import logging
-from typing import List, Dict, Tuple, Optional
 import yaml
+from ultralytics import YOLO
 
 logger = logging.getLogger(__name__)
 

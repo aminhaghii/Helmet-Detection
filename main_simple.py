@@ -6,14 +6,15 @@ Date: 2024
 Project: Construction Safety Detection System
 """
 
-import sys
 import os
-from pathlib import Path
-import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
+import sys
 import threading
 import time
 from datetime import datetime
+from pathlib import Path
+
+import tkinter as tk
+from tkinter import filedialog, messagebox, ttk
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent / "src"))

@@ -9,8 +9,8 @@ Project: Construction Safety Detection System
 import logging
 import logging.handlers
 import os
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 
 def setup_logger(name="HSE_Vision", level=logging.INFO, log_file=None):
