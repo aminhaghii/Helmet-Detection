@@ -2,9 +2,10 @@
 Basic tests for the core module functionality.
 """
 
-import pytest
-import sys
 import os
+import sys
+
+import pytest
 
 # Add src to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
@@ -13,7 +14,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 def test_imports():
     """Test that core modules can be imported without errors."""
     try:
-        from core import model, inference
+        from core import inference, model
 
         assert True
     except ImportError:
